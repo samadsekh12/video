@@ -1,132 +1,27 @@
-:root {
-  --accent-red:   #e63946;
-  --bg-light:     #f7f7f7;
-  --text-dark:    #333;
-  --border:       #ddd;
-  --font-family:  sans-serif;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: var(--font-family);
-  background: var(--bg-light);
-  color: var(--text-dark);
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  font-family: sans-serif;
+  background: #f9f9f9;
+  padding: 20px;
 }
-
-.container {
-  flex: 1;
-  max-width: 1000px;
-  margin: auto;
-  padding: 1rem;
-}
-
 h1 {
-  text-align: center;
-  margin-bottom: 1.5rem;
+  color: #333;
 }
-
-/* Upload Section */
-.upload-section {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
+.section {
+  margin-top: 30px;
 }
-
-.upload-btn {
-  background: var(--accent-red);
-  color: white;
-  padding: 0.6rem 1rem;
-  border-radius: 4px;
-  position: relative;
-  cursor: pointer;
-}
-
-.upload-btn input {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  opacity: 0;
-  cursor: pointer;
-}
-
-/* Four‐column Library Grid */
-.library-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.library h2 {
-  text-align: center;
-  margin-bottom: 0.5rem;
-}
-
-/* Shared list styling */
-.media-list {
-  list-style: none;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  max-height: 300px;
-  overflow-y: auto;
-}
-
-.media-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.4rem 0.6rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.media-list li:last-child {
-  border-bottom: none;
-}
-
-/* Buttons */
-.btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-left: 0.5rem;
-}
-
-.play-btn {
-  color: var(--accent-red);
-}
-
-.like-btn .fa-heart {
-  color: #bbb;
-  transition: color 0.2s;
-}
-
-.like-btn.liked .fa-heart {
-  color: var(--accent-red);
-}
-
-/* Global Player sticky bottom */
-.player {
-  position: sticky;
-  bottom: 0;
+.media-card {
   background: white;
-  border-top: 1px solid var(--border);
-  padding: 0.5rem 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
-.player audio,
-.player video {
-  max-width: 80%;
-  max-height: 60px;
+button {
+  margin-top: 5px;
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
 }
