@@ -1,22 +1,27 @@
 // Globals
 let db;
-let currentType = 'video'; // default tab
+let currentType = 'video';
 
 // Open (or create) IndexedDB
-const request = indexedDB.open('mediaDB', 1);
-request.onupgradeneeded = e => {
+const openReq = indexedDB.open('mediaDB', 1);
+
+openReq.onupgradeneeded = e => {
   db = e.target.result;
   if (!db.objectStoreNames.contains('files')) {
     db.createObjectStore('files', { keyPath: 'id', autoIncrement: true });
   }
 };
-request.onsuccess = e => {
+
+openReq.onsuccess = e => {
   db = e.target.result;
   renderList();
 };
-request.onerror = () => alert('IndexedDB failed to open');
 
-// DOM refs
+openReq.onerror = () => {
+  alert('Failed to open storage.');
+};
+
+// DOM Refs
 const fileInput = document.getElementById('fileInput');
 const fileList  = document.getElementById('fileList');
 const tabs      = document.querySelectorAll('.tab-btn');
@@ -24,17 +29,17 @@ const tabs      = document.querySelectorAll('.tab-btn');
 // Handle file selection
 fileInput.addEventListener('change', async () => {
   const files = Array.from(fileInput.files);
-  for (const f of files) {
-    await addToDB(f);
+  for (const file of files) {
+    await addToDB(file);
   }
-  fileInput.value = ''; // reset input
+  fileInput.value = '';
   renderList();
 });
 
-// Add file to IndexedDB
+// Add file entry to IndexedDB
 function addToDB(file) {
-  return new Promise((res, rej) => {
-    const tx = db.transaction('files', 'readwrite');
+  return new Promise((resolve, reject) => {
+    const tx    = db.transaction('files', 'readwrite');
     const store = tx.objectStore('files');
     const entry = {
       name: file.name,
@@ -42,15 +47,15 @@ function addToDB(file) {
       blob: file
     };
     const req = store.add(entry);
-    req.onsuccess = () => res();
-    req.onerror = () => rej(req.error);
+    req.onsuccess = () => resolve();
+    req.onerror   = () => reject(req.error);
   });
 }
 
-// Render files of the current tab
+// Render list of currentType files
 function renderList() {
   fileList.innerHTML = '';
-  const tx = db.transaction('files', 'readonly');
+  const tx    = db.transaction('files', 'readonly');
   const store = tx.objectStore('files');
   const cursorReq = store.openCursor();
 
@@ -65,22 +70,22 @@ function renderList() {
   };
 }
 
-// Build one media-card
+// Build a media card
 function createCard({ name, blob, type }) {
   const card = document.createElement('div');
   card.className = 'card';
 
   const url = URL.createObjectURL(blob);
   if (type === 'video') {
-    const vid = document.createElement('video');
-    vid.src = url;
-    vid.controls = true;
-    card.appendChild(vid);
+    const video = document.createElement('video');
+    video.src = url;
+    video.controls = true;
+    card.appendChild(video);
   } else {
-    const aud = document.createElement('audio');
-    aud.src = url;
-    aud.controls = true;
-    card.appendChild(aud);
+    const audio = document.createElement('audio');
+    audio.src = url;
+    audio.controls = true;
+    card.appendChild(audio);
   }
 
   const fname = document.createElement('div');
@@ -91,7 +96,7 @@ function createCard({ name, blob, type }) {
   fileList.appendChild(card);
 }
 
-// Tab switching
+// Switch tabs
 tabs.forEach(btn => {
   btn.addEventListener('click', () => {
     tabs.forEach(b => b.classList.remove('active'));
