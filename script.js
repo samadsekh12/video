@@ -1,26 +1,29 @@
 // Refs
-const audioInput   = document.getElementById('audioInput');
-const videoInput   = document.getElementById('videoInput');
-const audioListEl  = document.getElementById('audioList');
-const videoListEl  = document.getElementById('videoList');
-const likedListEl  = document.getElementById('likedList');
-const audioPlayer  = document.getElementById('audioPlayer');
-const videoPlayer  = document.getElementById('videoPlayer');
+const audioInput  = document.getElementById('audioInput');
+const videoInput  = document.getElementById('videoInput');
+const allListEl   = document.getElementById('allList');
+const audioListEl = document.getElementById('audioList');
+const videoListEl = document.getElementById('videoList');
+const likedListEl = document.getElementById('likedList');
+const audioPlayer = document.getElementById('audioPlayer');
+const videoPlayer = document.getElementById('videoPlayer');
 
 // In-memory arrays
 let audioFiles = [];
 let videoFiles = [];
-
-// Load liked songs from localStorage
 let likedSongs = JSON.parse(localStorage.getItem('likedSongs') || '[]');
 
-// Helpers
+// Persist likes
 function saveLikes() {
   localStorage.setItem('likedSongs', JSON.stringify(likedSongs));
 }
 
-function isLiked(url) {
-  return likedSongs.some(item => item.url === url);
+// Helper to build “All Files” list
+function getAllFiles() {
+  return [
+    ...audioFiles.map(f => ({ ...f, type: 'audio' })),
+    ...videoFiles.map(f => ({ ...f, type: 'video' }))
+  ];
 }
 
 // Handle uploads
@@ -29,7 +32,7 @@ audioInput.addEventListener('change', e => {
     audioFiles.push({ name: file.name, url: URL.createObjectURL(file) });
   });
   e.target.value = '';
-  renderLists();
+  renderAll();
 });
 
 videoInput.addEventListener('change', e => {
@@ -37,64 +40,64 @@ videoInput.addEventListener('change', e => {
     videoFiles.push({ name: file.name, url: URL.createObjectURL(file) });
   });
   e.target.value = '';
-  renderLists();
+  renderAll();
 });
 
-// Render all three lists
-function renderLists() {
-  renderList(audioListEl, audioFiles, 'audio');
-  renderList(videoListEl, videoFiles, 'video');
-  renderList(likedListEl, likedSongs, 'liked');
-}
-
-// Generic renderer
-function renderList(container, list, type) {
+// Core render function
+function renderList(container, list, isAll=false, isLiked=false) {
   container.innerHTML = '';
   list.forEach((f, i) => {
     const li = document.createElement('li');
-    li.innerHTML = `
-      <span>${f.name}</span>
-      <div>
-        <button class="btn play-btn" data-type="${type}" data-index="${i}">
-          ▶
-        </button>
-        ${type !== 'liked'
-          ? `<button class="btn like-btn ${isLiked(f.url)?'liked':''}"
-              data-type="${type}" data-index="${i}">
-              <i class="fa fa-heart"></i>
-            </button>`
-          : `<button class="btn like-btn liked" data-type="liked" data-index="${i}">
-              <i class="fa fa-heart"></i>
-            </button>`
-        }
-      </div>
-    `;
+    // play button always present
+    let btns = `
+      <button class="btn play-btn"
+        data-type="${isAll? f.type : isLiked? 'liked' : container.id.replace('List','')}"
+        data-index="${i}">
+        ▶
+      </button>`;
+    // like button on non-all lists
+    if (!isAll) {
+      const liked = likedSongs.find(x => x.url === f.url);
+      btns += `
+        <button class="btn like-btn ${liked? 'liked':''}"
+          data-type="${isLiked? 'liked' : container.id.replace('List','')}"
+          data-index="${i}">
+          <i class="fa fa-heart"></i>
+        </button>`;
+    }
+    li.innerHTML = `<span>${f.name}</span><div>${btns}</div>`;
     container.append(li);
   });
 }
 
-// Delegate play & like clicks
+// Re-render everything
+function renderAll() {
+  renderList(allListEl,  getAllFiles(),    true);
+  renderList(audioListEl, audioFiles,      false);
+  renderList(videoListEl, videoFiles,      false);
+  renderList(likedListEl, likedSongs,      false, true);
+}
+
+// Delegate clicks for play & like
 document.body.addEventListener('click', e => {
-  // Play button
+  // Play
   if (e.target.closest('.play-btn')) {
-    const btn   = e.target.closest('.play-btn');
-    const type  = btn.dataset.type;
-    const idx   = +btn.dataset.index;
+    const btn  = e.target.closest('.play-btn');
+    let type   = btn.dataset.type;
+    const idx  = +btn.dataset.index;
     let fileObj;
 
-    if (type === 'audio')      fileObj = audioFiles[idx];
+    if (type === 'all')       fileObj = getAllFiles()[idx];
+    else if (type === 'audio') fileObj = audioFiles[idx];
     else if (type === 'video') fileObj = videoFiles[idx];
-    else /* liked */ {
-      fileObj = likedSongs[idx];
-      // determine original type for player
-      type = fileObj.url.includes('blob:') && audioFiles.some(a=>a.url===fileObj.url)
-             ? 'audio' : 'video';
-    }
+    else /* liked */           fileObj = likedSongs[idx];
 
+    // hide/pause both
     audioPlayer.pause(); videoPlayer.pause();
     audioPlayer.hidden = true; videoPlayer.hidden = true;
 
-    if (type === 'audio') {
+    // play on correct player
+    if (fileObj.type === 'audio' || type==='audio' || type==='liked') {
       audioPlayer.src    = fileObj.url;
       audioPlayer.hidden = false;
       audioPlayer.play();
@@ -105,28 +108,25 @@ document.body.addEventListener('click', e => {
     }
   }
 
-  // Like/unlike button
+  // Like/unlike
   if (e.target.closest('.like-btn')) {
-    const btn   = e.target.closest('.like-btn');
-    const type  = btn.dataset.type;
-    const idx   = +btn.dataset.index;
+    const btn  = e.target.closest('.like-btn');
+    const type = btn.dataset.type;
+    const idx  = +btn.dataset.index;
     let f;
 
-    if (type === 'audio')       f = audioFiles[idx];
-    else if (type === 'video')  f = videoFiles[idx];
-    else /* liked */            f = likedSongs[idx];
+    if (type === 'audio')      f = audioFiles[idx];
+    else if (type === 'video') f = videoFiles[idx];
+    else /* liked */           f = likedSongs[idx];
 
-    // Toggle in likedSongs
-    const exists = likedSongs.find(item => item.url === f.url);
-    if (exists) {
-      likedSongs = likedSongs.filter(item => item.url !== f.url);
-    } else {
-      likedSongs.push({ name: f.name, url: f.url });
-    }
+    const exists = likedSongs.find(x => x.url === f.url);
+    if (exists) likedSongs = likedSongs.filter(x => x.url !== f.url);
+    else         likedSongs.push({ name: f.name, url: f.url });
+
     saveLikes();
-    renderLists();
+    renderAll();
   }
 });
 
 // Initial paint
-renderLists();
+renderAll();
