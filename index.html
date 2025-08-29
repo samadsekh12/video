@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>MediaHub</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Media File Manager</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>🎵📹 MediaHub</h1>
-  <input type="file" id="fileInput" accept="audio/*,video/*">
+  <h1>🎵📹 Media File Manager</h1>
+
+  <input type="file" id="fileInput" accept="audio/*,video/*" />
+  <button id="uploadBtn">Upload</button>
+
   <div class="section">
     <h2>🎧 Audio Files</h2>
     <div id="audioList"></div>
   </div>
+
   <div class="section">
     <h2>🎬 Video Files</h2>
     <div id="videoList"></div>
