@@ -21,17 +21,17 @@ const fileInput = document.getElementById('fileInput');
 const fileList  = document.getElementById('fileList');
 const tabs      = document.querySelectorAll('.tab-btn');
 
-// Add event: file selected
+// Handle file selection
 fileInput.addEventListener('change', async () => {
   const files = Array.from(fileInput.files);
   for (const f of files) {
     await addToDB(f);
   }
-  fileInput.value = ''; // reset
+  fileInput.value = ''; // reset input
   renderList();
 });
 
-// Add single file to IndexedDB
+// Add file to IndexedDB
 function addToDB(file) {
   return new Promise((res, rej) => {
     const tx = db.transaction('files', 'readwrite');
@@ -47,7 +47,7 @@ function addToDB(file) {
   });
 }
 
-// Fetch all entries, filter by currentType, then render
+// Render files of the current tab
 function renderList() {
   fileList.innerHTML = '';
   const tx = db.transaction('files', 'readonly');
@@ -65,8 +65,8 @@ function renderList() {
   };
 }
 
-// Create a card for one file
-function createCard({ id, name, blob, type }) {
+// Build one media-card
+function createCard({ name, blob, type }) {
   const card = document.createElement('div');
   card.className = 'card';
 
@@ -91,7 +91,7 @@ function createCard({ id, name, blob, type }) {
   fileList.appendChild(card);
 }
 
-// Tab click handler
+// Tab switching
 tabs.forEach(btn => {
   btn.addEventListener('click', () => {
     tabs.forEach(b => b.classList.remove('active'));
