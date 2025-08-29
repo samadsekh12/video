@@ -1,36 +1,55 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f4f8;
-  padding: 20px;
+:root {
+  --bg: #f4f6f9;
+  --fg: #0f172a;
+  --muted: #64748b;
+  --primary: #2563eb;
+  --danger: #dc2626;
+  --card: #ffffff;
+  --border: #e5e7eb;
 }
 
-h1 {
-  color: #333;
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--fg); }
+
+.topbar {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 18px; background: #fff; border-bottom: 1px solid var(--border);
 }
 
-.section {
-  margin-top: 30px;
+.container { max-width: 1000px; margin: 20px auto; padding: 0 16px; }
+.section { margin: 18px 0; }
+
+.uploader { display: flex; gap: 10px; align-items: center; }
+input[type="file"] { padding: 8px; background: #fff; border: 1px solid var(--border); border-radius: 8px; }
+
+.btn {
+  background: var(--primary); color: #fff; border: none; border-radius: 8px;
+  padding: 10px 14px; cursor: pointer;
+}
+.btn.delete { background: var(--danger); }
+.btn.small { padding: 6px 10px; border-radius: 6px; }
+
+.list { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.02);
 }
 
-.media-card {
-  background-color: #fff;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
+.card h3 { margin: 0 0 8px; font-size: 16px; }
+.meta { color: var(--muted); font-size: 12px; margin-top: 6px; }
+.media { width: 100%; max-height: 240px; }
 
-button {
-  margin-top: 10px;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 4px;
-  background-color: #2563eb;
-  color: white;
-  cursor: pointer;
+.folder {
+  background: var(--card); border: 1px dashed var(--border); border-radius: 10px; padding: 12px;
 }
+.folder > .folder-title { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.folder > .folder-title h3 { margin: 0; font-size: 15px; }
 
-button.delete {
-  background-color: #dc2626;
-  margin-left: 10px;
+.toast {
+  position: fixed; bottom: 20px; right: 20px; background: #111827; color: #fff;
+  padding: 10px 14px; border-radius: 8px; opacity: 0; transform: translateY(8px);
+  transition: all .2s; pointer-events: none;
 }
+.toast.show { opacity: 1; transform: translateY(0); }
