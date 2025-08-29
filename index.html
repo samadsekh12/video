@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <title>Media Uploader & Player</title>
+
+  <!-- Font Awesome for heart icon -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-p/w8f7bQFqK1u4Nf0gqRzU+42yY6UEpN3VorioT9s3NY2aBtLwV+YZ2Q0a3j4lQk2YbF1EG2w+T3ZngJ8a3v3g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -13,26 +23,16 @@
     <div class="upload-section">
       <label class="upload-btn">
         Upload Audio
-        <input
-          type="file"
-          id="audioInput"
-          accept="audio/*"
-          multiple
-        />
+        <input type="file" id="audioInput" accept="audio/*" multiple />
       </label>
 
       <label class="upload-btn">
         Upload Video
-        <input
-          type="file"
-          id="videoInput"
-          accept="video/*"
-          multiple
-        />
+        <input type="file" id="videoInput" accept="video/*" multiple />
       </label>
     </div>
 
-    <!-- Libraries -->
+    <!-- Libraries: Audio / Video / Liked -->
     <div class="library-section">
       <div class="library">
         <h2>Audio Library</h2>
@@ -41,6 +41,10 @@
       <div class="library">
         <h2>Video Library</h2>
         <ul id="videoList" class="media-list"></ul>
+      </div>
+      <div class="library">
+        <h2>Liked Songs</h2>
+        <ul id="likedList" class="media-list"></ul>
       </div>
     </div>
   </div>
