@@ -1,62 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-  <meta charset="UTF-8" />
-  <title>Media Uploader & Player</title>
-
-  <!-- Font Awesome for heart icon -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-p/w8f7bQFqK1u4Nf0gqRzU+42yY6UEpN3VorioT9s3NY2aBtLwV+YZ2Q0a3j4lQk2YbF1EG2w+T3ZngJ8a3v3g=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <title>MediaHub</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Media Uploader & Player</h1>
-
-    <!-- Upload Controls -->
-    <div class="upload-section">
-      <label class="upload-btn">
-        Upload Audio
-        <input type="file" id="audioInput" accept="audio/*" multiple />
-      </label>
-
-      <label class="upload-btn">
-        Upload Video
-        <input type="file" id="videoInput" accept="video/*" multiple />
-      </label>
-    </div>
-
-    <!-- Libraries: All / Audio / Video / Liked -->
-    <div class="library-section">
-      <div class="library">
-        <h2>All Files</h2>
-        <ul id="allList" class="media-list"></ul>
-      </div>
-      <div class="library">
-        <h2>Audio Library</h2>
-        <ul id="audioList" class="media-list"></ul>
-      </div>
-      <div class="library">
-        <h2>Video Library</h2>
-        <ul id="videoList" class="media-list"></ul>
-      </div>
-      <div class="library">
-        <h2>Liked Songs</h2>
-        <ul id="likedList" class="media-list"></ul>
-      </div>
-    </div>
+  <h1>🎵📹 MediaHub</h1>
+  <input type="file" id="fileInput" accept="audio/*,video/*">
+  <div class="section">
+    <h2>🎧 Audio Files</h2>
+    <div id="audioList"></div>
   </div>
-
-  <!-- Global Player -->
-  <div class="player">
-    <audio id="audioPlayer" controls hidden></audio>
-    <video id="videoPlayer" controls hidden></video>
+  <div class="section">
+    <h2>🎬 Video Files</h2>
+    <div id="videoList"></div>
   </div>
 
   <script src="script.js"></script>
