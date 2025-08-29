@@ -2,45 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>My Music Player</title>
-
-  <!-- Google Font -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- Font Awesome for icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-p/w8f7bQFqK1u4Nf0gqRzU+42yY6UEpN3VorioT9s3NY2aBtLwV+YZ2Q0a3j4lQk2YbF1EG2w+T3ZngJ8a3v3g=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-
+  <title>Media Uploader & Player</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="player-container">
-    <h1>My Music Player</h1>
+  <div class="container">
+    <h1>Media Uploader & Player</h1>
 
-    <div class="top-controls">
-      <div class="search-bar">
-        <i class="fas fa-search"></i>
+    <!-- Upload Controls -->
+    <div class="upload-section">
+      <label class="upload-btn">
+        Upload Audio
         <input
-          type="text"
-          id="searchInput"
-          placeholder="Search song..."
+          type="file"
+          id="audioInput"
+          accept="audio/*"
+          multiple
         />
-      </div>
-      <div class="global-buttons">
-        <button id="playAll"><i class="fas fa-play"></i></button>
-        <button id="pauseAll"><i class="fas fa-pause"></i></button>
-      </div>
+      </label>
+
+      <label class="upload-btn">
+        Upload Video
+        <input
+          type="file"
+          id="videoInput"
+          accept="video/*"
+          multiple
+        />
+      </label>
     </div>
 
-    <div id="trackList" class="track-list"></div>
+    <!-- Libraries -->
+    <div class="library-section">
+      <div class="library">
+        <h2>Audio Library</h2>
+        <ul id="audioList" class="media-list"></ul>
+      </div>
+      <div class="library">
+        <h2>Video Library</h2>
+        <ul id="videoList" class="media-list"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Player -->
+  <div class="player">
+    <audio id="audioPlayer" controls hidden></audio>
+    <video id="videoPlayer" controls hidden></video>
   </div>
 
   <script src="script.js"></script>
