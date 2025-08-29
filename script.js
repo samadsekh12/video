@@ -1,64 +1,102 @@
-const fileInput    = document.getElementById('fileInput');
-const gallery      = document.getElementById('gallery');
-const shareBtn     = document.getElementById('shareBtn');
-const screenVideo  = document.getElementById('screenPreview');
+// Globals
+let db;
+let currentType = 'video'; // default tab
 
-fileInput.addEventListener('change', () => {
-  gallery.innerHTML = ''; // clear previous entries
+// Open (or create) IndexedDB
+const request = indexedDB.open('mediaDB', 1);
+request.onupgradeneeded = e => {
+  db = e.target.result;
+  if (!db.objectStoreNames.contains('files')) {
+    db.createObjectStore('files', { keyPath: 'id', autoIncrement: true });
+  }
+};
+request.onsuccess = e => {
+  db = e.target.result;
+  renderList();
+};
+request.onerror = () => alert('IndexedDB failed to open');
 
-  Array.from(fileInput.files).forEach(file => {
-    const url = URL.createObjectURL(file);
-    const ext = file.name.split('.').pop().toLowerCase();
-    const card = document.createElement('div');
-    card.className = 'card';
+// DOM refs
+const fileInput = document.getElementById('fileInput');
+const fileList  = document.getElementById('fileList');
+const tabs      = document.querySelectorAll('.tab-btn');
 
-    // Video
-    if (['mp4','webm','ogg'].includes(ext)) {
-      const vid = document.createElement('video');
-      vid.controls = true;
-      vid.src = url;
-      card.appendChild(vid);
-
-    // Audio
-    } else if (['mp3','wav','aac'].includes(ext)) {
-      const aud = document.createElement('audio');
-      aud.controls = true;
-      aud.src = url;
-      card.appendChild(aud);
-
-    // PDF
-    } else if (ext === 'pdf') {
-      const obj = document.createElement('object');
-      obj.data = url;
-      obj.type = 'application/pdf';
-      card.appendChild(obj);
-
-    // Text or other
-    } else {
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = file.name;
-      link.textContent = 'Download: ' + file.name;
-      card.appendChild(link);
-    }
-
-    // Filename caption
-    const nameDiv = document.createElement('div');
-    nameDiv.className = 'filename';
-    nameDiv.textContent = file.name;
-    card.appendChild(nameDiv);
-
-    gallery.appendChild(card);
-  });
+// Add event: file selected
+fileInput.addEventListener('change', async () => {
+  const files = Array.from(fileInput.files);
+  for (const f of files) {
+    await addToDB(f);
+  }
+  fileInput.value = ''; // reset
+  renderList();
 });
 
-// Screen-sharing demo
-shareBtn.addEventListener('click', async () => {
-  try {
-    const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
-    screenVideo.srcObject = stream;
-    screenVideo.hidden = false;
-  } catch (err) {
-    alert('Cannot share screen: ' + err.message);
+// Add single file to IndexedDB
+function addToDB(file) {
+  return new Promise((res, rej) => {
+    const tx = db.transaction('files', 'readwrite');
+    const store = tx.objectStore('files');
+    const entry = {
+      name: file.name,
+      type: file.type.startsWith('video') ? 'video' : 'audio',
+      blob: file
+    };
+    const req = store.add(entry);
+    req.onsuccess = () => res();
+    req.onerror = () => rej(req.error);
+  });
+}
+
+// Fetch all entries, filter by currentType, then render
+function renderList() {
+  fileList.innerHTML = '';
+  const tx = db.transaction('files', 'readonly');
+  const store = tx.objectStore('files');
+  const cursorReq = store.openCursor();
+
+  cursorReq.onsuccess = e => {
+    const cursor = e.target.result;
+    if (!cursor) return;
+    const record = cursor.value;
+    if (record.type === currentType) {
+      createCard(record);
+    }
+    cursor.continue();
+  };
+}
+
+// Create a card for one file
+function createCard({ id, name, blob, type }) {
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  const url = URL.createObjectURL(blob);
+  if (type === 'video') {
+    const vid = document.createElement('video');
+    vid.src = url;
+    vid.controls = true;
+    card.appendChild(vid);
+  } else {
+    const aud = document.createElement('audio');
+    aud.src = url;
+    aud.controls = true;
+    card.appendChild(aud);
   }
+
+  const fname = document.createElement('div');
+  fname.className = 'fname';
+  fname.textContent = name;
+  card.appendChild(fname);
+
+  fileList.appendChild(card);
+}
+
+// Tab click handler
+tabs.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabs.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentType = btn.dataset.type;
+    renderList();
+  });
 });
