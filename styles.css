@@ -1,39 +1,120 @@
-/* 1. Define your cool-red and font sizes as CSS variables */
+/*─────────────────────────────────────────
+  CSS Variables: colors & font sizes
+─────────────────────────────────────────*/
 :root {
-  --primary-red: #e63946;      /* cooler red */
-  --font-base: 16px;           /* body text */
-  --font-heading: 2.25rem;     /* h1 */
-  --font-button: 1rem;         /* buttons & labels */
-  --font-filename: 1rem;       /* file name caption */
+  --primary-red:   #e63946;
+  --font-base:     16px;
+  --font-heading:  2rem;
+  --font-label:    1rem;
+  --font-button:   1rem;
+  --font-filename: 0.9rem;
 }
 
-/* 2. Apply base font size */
+/*─────────────────────────────────────────
+  Global Reset & Base Styles
+─────────────────────────────────────────*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
+  font-family: 'Montserrat', sans-serif;
   font-size: var(--font-base);
+  background: #f7f7f7;
+  color: #333;
+  padding: 1rem;
 }
 
-/* 3. Heading size */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 h1 {
+  text-align: center;
   font-size: var(--font-heading);
+  font-weight: 600;
   margin-bottom: 1rem;
 }
 
-/* 4. File-input label */
+/*─────────────────────────────────────────
+  File Input Label
+─────────────────────────────────────────*/
 .file-label {
+  display: inline-block;
   background: var(--primary-red);
-  font-size: var(--font-button);
+  color: white;
+  font-size: var(--font-label);
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
-/* 5. Tab buttons */
+.file-label input {
+  display: none;
+}
+
+/*─────────────────────────────────────────
+  Tabs (Videos / Audios)
+─────────────────────────────────────────*/
+.tabs {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
 .tab-btn {
+  flex: 1;
+  padding: 0.75rem;
   font-size: var(--font-button);
+  font-weight: 500;
+  background: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  text-align: center;
 }
 
 .tab-btn.active {
   background: var(--primary-red);
+  color: white;
+  border-color: var(--primary-red);
 }
 
-/* 6. Card filename caption */
+/*─────────────────────────────────────────
+  Gallery Grid
+─────────────────────────────────────────*/
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+/* Card Styles */
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Media Elements */
+.card video,
+.card audio {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+/* Filename Caption */
 .card .fname {
   font-size: var(--font-filename);
+  font-weight: 500;
+  text-align: center;
+  word-break: break-word;
 }
