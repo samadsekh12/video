@@ -1,14 +1,39 @@
-/* Use Montserrat site-wide */
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: #f7f7f7;
-  color: #333;
-  margin: 0;
-  padding: 1rem;
+/* 1. Define your cool-red and font sizes as CSS variables */
+:root {
+  --primary-red: #e63946;      /* cooler red */
+  --font-base: 16px;           /* body text */
+  --font-heading: 2.25rem;     /* h1 */
+  --font-button: 1rem;         /* buttons & labels */
+  --font-filename: 1rem;       /* file name caption */
 }
 
-/* You can also style headings or specific elements if you want a different weight */
-/* e.g., make your H1 bolder: */
+/* 2. Apply base font size */
+body {
+  font-size: var(--font-base);
+}
+
+/* 3. Heading size */
 h1 {
-  font-weight: 600;  /* Montserrat supports 400,500,600 per our import */
+  font-size: var(--font-heading);
+  margin-bottom: 1rem;
+}
+
+/* 4. File-input label */
+.file-label {
+  background: var(--primary-red);
+  font-size: var(--font-button);
+}
+
+/* 5. Tab buttons */
+.tab-btn {
+  font-size: var(--font-button);
+}
+
+.tab-btn.active {
+  background: var(--primary-red);
+}
+
+/* 6. Card filename caption */
+.card .fname {
+  font-size: var(--font-filename);
 }
