@@ -16,14 +16,14 @@ body {
   font-family: var(--font-family);
   background: var(--bg-light);
   color: var(--text-dark);
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 .container {
   flex: 1;
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
   padding: 1rem;
 }
@@ -46,8 +46,8 @@ h1 {
   color: white;
   padding: 0.6rem 1rem;
   border-radius: 4px;
-  cursor: pointer;
   position: relative;
+  cursor: pointer;
 }
 
 .upload-btn input {
@@ -58,11 +58,12 @@ h1 {
   cursor: pointer;
 }
 
-/* Three‐column Libraries */
+/* Four‐column Library Grid */
 .library-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .library h2 {
@@ -70,6 +71,7 @@ h1 {
   margin-bottom: 0.5rem;
 }
 
+/* Shared list styling */
 .media-list {
   list-style: none;
   border: 1px solid var(--border);
@@ -90,8 +92,8 @@ h1 {
   border-bottom: none;
 }
 
-/* Play & Like Buttons */
-.media-list .btn {
+/* Buttons */
+.btn {
   background: none;
   border: none;
   cursor: pointer;
@@ -99,30 +101,29 @@ h1 {
   margin-left: 0.5rem;
 }
 
-.media-list .play-btn {
+.play-btn {
   color: var(--accent-red);
 }
 
-.media-list .like-btn .fa-heart {
+.like-btn .fa-heart {
   color: #bbb;
   transition: color 0.2s;
 }
 
-.media-list .like-btn.liked .fa-heart {
+.like-btn.liked .fa-heart {
   color: var(--accent-red);
 }
 
-/* Global Player */
+/* Global Player sticky bottom */
 .player {
+  position: sticky;
+  bottom: 0;
   background: white;
   border-top: 1px solid var(--border);
   padding: 0.5rem 1rem;
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 1rem;
-  position: sticky;
-  bottom: 0;
 }
 .player audio,
 .player video {
