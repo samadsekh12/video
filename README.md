@@ -52,8 +52,8 @@ Installation
 Clone the repository
 
 bash
-git clone https://github.com/your-org/CalcVault.git
-cd CalcVault/app
+git clone https://github.com/samadsekh12/video.git
+cd video/app
 Open in Android Studio
 
 Choose Open an existing Android Studio project
@@ -125,32 +125,7 @@ Run tests with:
 bash
 ./gradlew testDebugUnitTest
 ./gradlew connectedDebugAndroidTest
-Project Structure
-Code
-app/
-├─ build.gradle
-├─ proguard-rules.pro
-└─ src/
-   └─ main/
-      ├─ AndroidManifest.xml
-      ├─ java/com/example/calcvault/
-      │  ├─ MainActivity.kt
-      │  ├─ VaultActivity.kt
-      │  ├─ utils/EncryptionUtils.kt
-      │  └─ data/
-      │     ├─ AppDatabase.kt
-      │     ├─ FileMetadata.kt
-      │     ├─ FileMetadataDao.kt
-      │     └─ EncryptedConverter.kt
-      └─ res/
-         ├─ layout/
-         │  ├─ activity_main.xml
-         │  ├─ activity_vault.xml
-         │  └─ item_file.xml
-         └─ values/
-            ├─ colors.xml
-            ├─ strings.xml
-            └─ themes.xml
+
 Contributing
 Contributions are welcome. Please:
 
