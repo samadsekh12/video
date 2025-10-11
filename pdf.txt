@@ -1,0 +1,78 @@
+Generate Kotlin code for an Android application that uses the device camera to scan documents and extract text using OCR technology. The app must support Bengali, Hindi, and English languages.
+Features to include:
+
+Document Scanning & OCR
+
+Use the device camera to scan documents.
+Use ML Kit or OpenCV for OCR.
+Extract text in Bengali, Hindi, and English.
+Allow users to download OCR results as .txt or .pdf files.
+
+
+PDF Generation
+
+Save scanned documents as PDF files.
+Merge multiple scanned pages into a single PDF.
+
+
+Image Editing Tools
+
+Include crop, rotate, auto-crop, and auto-brightness features.
+
+
+File Management
+
+Save all scanned files to local storage using scoped storage (Android 10+ compatible).
+Display a list of saved files within the app.
+
+
+User Interface
+
+Follow Material Design principles.
+Include a bottom navigation bar with tabs: Home, History, and Settings.
+Support offline functionality.
+Support dark mode.
+
+
+Settings Screen
+
+Toggle dark mode.
+Select app language (Bengali, Hindi, English).
+Choose OCR language.
+Adjust scan resolution or image quality.
+
+
+History Screen
+
+Display a list of previously scanned documents with file name, scan time, and OCR results.
+
+
+Code Structure
+
+Organize the code into the following files:
+
+MainActivity.kt
+OcrProcessor.kt
+PdfGenerator.kt
+ImageEditor.kt
+FileManager.kt
+ShareUtils.kt
+SettingsActivity.kt
+HistoryActivity.kt
+BottomNavHelper.kt
+activity_main.xml
+build.gradle
+
+
+
+
+Development Requirements
+
+Include setup instructions for Android Studio.
+Ensure the code is beginner-friendly and well-commented.
+Include all necessary permissions in AndroidManifest.xml (camera, storage).
+Use proper import statements, null safety, runtime permission checks, and exception handling in all Kotlin files.
+Use background threads or coroutines to keep the UI responsive.
+Handle runtime errors (e.g., missing permissions, OCR failures, missing files, device compatibility issues) using try-catch blocks, fallback UI, and user-friendly error messages.
+Ensure a clean build with no warnings.
+Resolve Gradle sync issues by managing dependency versions properly.
