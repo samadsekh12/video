@@ -23,6 +23,81 @@ Log all critical actions and errors to Logcat to support debugging. Optimize per
 </div>
 
       <div class="quotes" aria-live="polite">
+          <div class="quote"><brou can copy and paste each of these into Copilot one at a time, or combine them as needed.
+
+🟦 1. Camera Capture & Preview UI
+
+Create a Kotlin-based Android activity that opens the device camera, captures a document image, and displays it in a preview screen. The preview screen should include buttons for Crop (with Auto Crop), Rotate, Brightness (with Auto Brightness), Retake, and Process. Use a bottom toolbar to place these options.
+
+
+🟦 2. Auto Image Processing with OpenCV
+
+Implement auto image processing using OpenCV in Kotlin. Include auto edge detection, auto straighten, auto crop, and auto brightness features. These should be triggered automatically after capturing the image and shown in the preview.
+
+
+🟦 3. Batch Scan Mode
+
+Add support for batch scanning. Allow users to scan multiple pages in sequence and swipe horizontally to view each scanned image. Use a ViewPager or RecyclerView for swipe navigation.
+
+
+🟦 4. Process Button Logic
+
+When the user taps the Process button, show a bottom sheet with two options: Download and Share. Implement this using Material Design BottomSheetDialog.
+
+
+🟦 5. Download as .txt using ML Kit OCR
+
+Implement a function that uses ML Kit’s on-device OCR API to extract text from the scanned image. Automatically detect the language of the document (no manual selection). Save the extracted text as a .txt file in local storage using Scoped Storage.
+
+
+🟦 6. Download as .pdf
+
+Create a function that converts the scanned image(s) into a PDF file and saves it locally using Scoped Storage. Ensure the PDF is properly formatted and named.
+
+
+🟦 7. Share Files with FileProvider
+
+Implement a share feature using Android’s native Share Intent. Use FileProvider to generate URIs for the files. Allow sharing of multiple files and include an option to compress them into a .zip file before sharing.
+
+
+🟦 8. History Screen
+
+Create a History screen that lists all previously scanned files. Each item should show the file name, scan timestamp, and a Process button. Include options to rename, delete, sort, and filter the list.
+
+
+🟦 9. Settings Screen
+
+Build a Settings screen with the following options: toggle Dark Mode, select app language (Bangla, Hindi, English), and change scan resolution. Use strings.xml for localization and ContextWrapper to apply language changes at runtime.
+
+
+🟦 10. UI Design & Accessibility
+
+Design the UI using Material 3 components and ConstraintLayout. Include a Bottom Navigation Bar with Home, History, and Settings tabs. Use MotionLayout for smooth animations. Support Light/Dark Mode, Android 12+ dynamic color theming, RTL layout, and accessibility features like screen reader support, large fonts, and high contrast mode. Add contentDescription, labelFor, and importantForAccessibility to all UI elements.
+
+
+🟦 11. Debug Log Viewer
+
+Add a debug log viewer screen using a scrollable TextView or RecyclerView to display logs generated during app usage.
+
+
+🟦 12. Permissions & Runtime Handling
+
+Add CAMERA, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, and INTERNET permissions in AndroidManifest.xml. For Android 10, include requestLegacyExternalStorage="true". Write a Kotlin function using ContextCompat and ActivityCompat to check and request permissions with version-aware logic for Android 7 to 14. Show a Toast or Snackbar if permission is denied.
+
+
+🟦 13. Performance & Error Handling
+
+Use Kotlin coroutines or background threads for all long-running tasks like image processing and file saving. Wrap all critical operations in try-catch blocks to handle errors gracefully and maintain UI responsiveness.
+
+
+🟦 14. Build & Setup
+
+Ensure the app builds successfully without Gradle sync issues. Provide Android Studio setup instructions including dependencies for ML Kit, OpenCV, and FileProvider.div>
+        
+      </div>
+</div>
+
+      <div class="quotes" aria-live="polite">
           <div class="quote"><br></div>
         
       </div>
