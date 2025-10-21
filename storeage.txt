@@ -1,0 +1,68 @@
+ Final Copilot Prompt (Updated with Live Storage Feature):
+
+Build a Kotlin-based Android app named "Offline File Cleaner" with the following features and specifications:
+
+📱 App Purpose:
+
+The app helps users clean unnecessary files and images from their device offline, improving storage space and device performance.
+It supports manual and batch deletion, auto-clean scheduling, and storage analysis.
+The app is designed to be lightweight, Play Store friendly, and compatible with Android API 28 to 36+.
+
+
+📁 1. File Cleaner Features:
+
+Scan and list unnecessary files: .log, .tmp, .apk, .cache, .zip, .pdf, .txt
+Show file size, type, location, and last modified date
+Manual delete and batch delete options
+Detect and delete leftover folders/files from uninstalled apps
+✅ Live Storage Scan: Automatically update file list as files are added/removed from device
+
+
+🖼️ 2. Photo Cleaner Features:
+
+Blurry image detection using Laplacian variance (Kotlin logic, no OpenCV)
+Duplicate image detection using Average Hash or Perceptual Hash
+Screenshot filtering based on folder name or resolution
+Image preview before deletion
+Batch delete support
+✅ Live Image Monitoring: Refresh image list when new photos are added or deleted
+
+
+📊 3. Storage Analyzer:
+
+Show internal and external storage usage
+Breakdown by file type
+Visualize using pie chart or bar graph (MPAndroidChart)
+✅ Live Storage Usage Updates: Automatically refresh chart when storage changes
+
+
+⚙️ 4. Settings & Customization:
+
+Auto-clean schedule using WorkManager
+Folder exclude list (folders to skip during scan)
+Dark Mode toggle using AppCompatDelegate
+Language support: Bengali, Hindi, English (via strings.xml)
+
+
+🔐 5. Permissions Handling:
+
+Android 13+: READ_MEDIA_IMAGES
+Android <13: READ_EXTERNAL_STORAGE
+Optional: MANAGE_EXTERNAL_STORAGE for full access
+Runtime permission prompt with fallback logic
+
+
+📦 6. Compatibility:
+
+minSdkVersion = 28, targetSdkVersion = 36
+Proper handling of Scoped Storage (Android 10+)
+Lightweight Kotlin logic (no OpenCV, no RenderScript, no native C++)
+
+
+💰 7. Optional Monetization:
+
+Google AdMob integration (banner and interstitial ads)
+In-App Purchase to unlock premium features
+ASO optimization for Play Store visibility
+
+✅ Ensure the app is optimized for performance, privacy, and Play Store compliance.
