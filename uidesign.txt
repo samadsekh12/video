@@ -1,0 +1,42 @@
+UI Screen Design (Wireframe Overview)
+1. Home Screen
+
+Tabs: File Cleaner, Photo Cleaner, Storage Analyzer
+Bottom Navigation: Home, Settings, Premium
+
+2. File Cleaner Screen
+
+List of detected files with:
+
+File name
+Type
+Size
+Last modified
+Checkbox for selection
+
+
+Buttons: Scan, Delete Selected, Delete All
+
+3. Photo Cleaner Screen
+
+Grid view of images with:
+
+Blurry/Duplicate/Screenshot tags
+Preview on tap
+Select multiple
+
+
+Buttons: Scan, Delete Selected
+
+4. Storage Analyzer Screen
+
+Pie chart or bar graph
+Breakdown by file type
+Total used/free space
+
+5. Settings Screen
+
+Auto-clean toggle
+Folder exclude list
+Language selector (বাংলা, हिंदी, English)
+Dark mode toggle
