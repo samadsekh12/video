@@ -1,12 +1,12 @@
-✅ Essential Frameworks & Libraries List
-📱 1. Kotlin + XML UI
+📱 1. Development Configuration
+Plain Textgrad isn’t fully supported. Syntax highlighting is based on Plain Text.defaultConfig {    minSdkVersion 28    targetSdkVersion 36}Show more lines
 
-UI Design: XML
-Logic: Kotlin (Google recommended)
-✅ Works on Android 5.0+
+minSdkVersion = 28 → Android 9.0 Pie
+targetSdkVersion = 36 → Android 15 (latest)
+✅ Ensures compatibility with most modern devices
 
 
-🧰 2. Jetpack Libraries
+🧰 2. Jetpack Libraries (Fully Compatible)
 
 
 
@@ -37,23 +37,16 @@ Logic: Kotlin (Google recommended)
 
 
 
-LibraryকাজCompatibilityAppCompatপুরনো ভার্সনে UI supportAPI 14+WorkManagerBackground image/file scanAPI 14+ViewModel + LiveDataLifecycle-aware UIAPI 14+Room (optional)Local DB for image metadataAPI 14+
 
-🖼️ 3. Image Processing (OpenCV ছাড়া)
-✅ Blurry Detection
 
-Custom Kotlin Logic using Laplacian variance approximation
 
-✅ Duplicate Detection
+LibraryUseAppCompatUI support across versionsViewModel + LiveDataLifecycle-aware UIWorkManagerBackground scanningRoomLocal DB (optional)NavigationFragment navigationDataStoreModern shared preferences (optional)
 
-Average Hash / Perceptual Hash using Kotlin
+📂 3. File & Media Access
 
-✅ Screenshot Detection
 
-Folder-based filtering (/Screenshots/) or resolution-based
 
 
-📂 4. File Access & Cleaner Logic
 
 
 
@@ -79,39 +72,76 @@ Folder-based filtering (/Screenshots/) or resolution-based
 
 
 
-APIকাজCompatibilityMediaStore APIGallery & media accessAPI 19+File APIExternal storage accessAPI 19+Scoped Storage HandlingAndroid 10+ compatibilityAPI 29+
+APIUseMediaStoreGallery/media accessFile() classExternal storage accessScoped StorageAndroid 10+ (API 29)READ_MEDIA_IMAGESAndroid 13+ (API 33)MANAGE_EXTERNAL_STORAGEAndroid 11+ (API 30) — optional
+✅ Use conditional logic to handle version-specific access.
 
-🔐 5. Permissions
+🖼️ 4. Image Cleaner Logic (OpenCV ছাড়া)
 
+✅ Kotlin-based:
 
+Blurry detection (Laplacian variance)
+Duplicate detection (Average Hash)
+Screenshot detection (folder-based)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-PermissionUseREAD_MEDIA_IMAGESAndroid 13+ image accessMANAGE_EXTERNAL_STORAGEFull file access (optional, sensitive)READ_EXTERNAL_STORAGEAndroid <10
+🔐 5. Permissions Handling
+Use version-aware permission checks:
+Kotlinif (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {    // Use READ_MEDIA_IMAGES} else {    // Use READ_EXTERNAL_STORAGE}Show more lines
 
 📊 6. Optional Features
 
-Storage Analyzer: Kotlin logic + Pie chart (MPAndroidChart)
-Dark Mode: Jetpack AppCompatDelegate
 
 
-🧠 7. Optional Enhancements
 
-ML Kit (Firebase): For advanced image classification (optional)
-Glide / Coil: Efficient image loading in U
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FeatureToolStorage AnalyzerMPAndroidChartDark ModeAppCompatDelegateAuto-CleanWorkManagerLanguage SupportBengali, Hindi, English (strings.xml)Image PreviewGlide / Coil
+
+🚫 Avoid These
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ToolReasonOpenCVHeavy, not Play Store friendlyRenderScriptDeprecated in Android 12+Native C++Complex, unnecessary
