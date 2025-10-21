@@ -1,1 +1,117 @@
-Generate Kotlin code for an Android application that uses the device camera to scan documents and extract text using OCR technology, supporting Bengali, Hindi, and English languages. The app should allow users to save scanned documents as PDF files, merge multiple pages into a single PDF, and download OCR results as .txt or .pdf files. It must include image editing features such as crop, rotate, auto crop, and auto brightness. All scanned files should be saved to local storage and listed within the app. The app should include a bottom navigation bar that works offline, with tabs for Home, History, and Settings. The Settings screen should allow users to toggle dark mode, select app language (Bengali, Hindi, English), choose OCR language, and adjust scan resolution or image quality. Users should be able to view a history of previously scanned documents, including file name, scan time, and OCR results. The UI should follow Material Design principles and support dark mode. I will attach reference images for the UI design, and the layout should match the visual structure shown in those images. Each screen (Home, History, Settings) should be designed according to the corresponding image. The code should be organized into separate files: MainActivity.kt, OcrProcessor.kt, PdfGenerator.kt, ImageEditor.kt, FileManager.kt, ShareUtils.kt, SettingsActivity.kt, HistoryActivity.kt, BottomNavHelper.kt, activity_main.xml, and build.gradle. Include setup instructions for Android Studio, and ensure the code is beginner-friendly and well-commented. The code must run error-free in Android Studio, with all necessary permissions and dependencies included. AndroidManifest.xml should contain camera and storage permissions. Each Kotlin file should include correct import statements, null safety, runtime permission checks, and exception handling. Use ML Kit or OpenCV for OCR and image processing. Ensure a clean build with no warnings. Handle runtime errors such as missing permissions, OCR failures, missing files, and device compatibility issues using try-catch blocks, fallback UI, and error messages. Use background threads or coroutines to maintain UI responsiveness. Ensure compatibility with Android 10+ using scoped storage and FileProvider. Resolve Gradle sync issues by managing version conflicts and dependencies properly.
+✅ Essential Frameworks & Libraries List
+📱 1. Kotlin + XML UI
+
+UI Design: XML
+Logic: Kotlin (Google recommended)
+✅ Works on Android 5.0+
+
+
+🧰 2. Jetpack Libraries
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LibraryকাজCompatibilityAppCompatপুরনো ভার্সনে UI supportAPI 14+WorkManagerBackground image/file scanAPI 14+ViewModel + LiveDataLifecycle-aware UIAPI 14+Room (optional)Local DB for image metadataAPI 14+
+
+🖼️ 3. Image Processing (OpenCV ছাড়া)
+✅ Blurry Detection
+
+Custom Kotlin Logic using Laplacian variance approximation
+
+✅ Duplicate Detection
+
+Average Hash / Perceptual Hash using Kotlin
+
+✅ Screenshot Detection
+
+Folder-based filtering (/Screenshots/) or resolution-based
+
+
+📂 4. File Access & Cleaner Logic
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+APIকাজCompatibilityMediaStore APIGallery & media accessAPI 19+File APIExternal storage accessAPI 19+Scoped Storage HandlingAndroid 10+ compatibilityAPI 29+
+
+🔐 5. Permissions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PermissionUseREAD_MEDIA_IMAGESAndroid 13+ image accessMANAGE_EXTERNAL_STORAGEFull file access (optional, sensitive)READ_EXTERNAL_STORAGEAndroid <10
+
+📊 6. Optional Features
+
+Storage Analyzer: Kotlin logic + Pie chart (MPAndroidChart)
+Dark Mode: Jetpack AppCompatDelegate
+
+
+🧠 7. Optional Enhancements
+
+ML Kit (Firebase): For advanced image classification (optional)
+Glide / Coil: Efficient image loading in U
