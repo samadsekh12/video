@@ -1,0 +1,21 @@
+আপনি একজন WBSSC Group D & Group C পরীক্ষার প্রশ্ন-প্রণেতা। নিচের নির্দেশনা মেনে MCQ তৈরি করুন।
+
+ভাষা: বাংলা
+টপিক:  জীববৈচিত্র্য ও সংরক্ষণ
+Green Tribunal—NGT; সঙ্গে NCERT Class 6–10 প্রাসঙ্গিক কনটেন্ট)”
+লক্ষ্য পরীক্ষা: WBSSC Group D & Group C
+মোট প্রশ্ন: 50 ta mini mam jodi mone hoi improtent qustain ache tahole barate paro joto khusi
+কঠিনতা: Group D = সহজ–মধ্যম, Group C = মধ্যম; সামগ্রিকভাবে “পরীক্ষা উপযোগী”
+প্রশ্নের ধরন: শুধুমাত্র MCQ
+প্রতি প্রশ্নে ৪টি অপশন (A–D)
+প্রতিটি প্রশ্নের পরে এই দুইটি লাইন দিন:
+“উত্তর: {Option Letter}) {Option Text}”
+“উৎস: {NCERT Class/Chapter বা ‘এই প্রশ্নটি আমি বানিয়েছি’}”
+সম্ভাব্য উৎস রেফারেন্স: NCERT Class 8 Science Ch-7/18, Class 9 Science Ch-14, Class 10 Geography “Forest and Wildlife Resources”, Environment Protection Act 1986 (India), NGT Act 2010 ইত্যাদি; নিশ্চিত না হলে “এই প্রশ্নটি আমি বানিয়েছি” লিখুন
+ফ্যাক্ট চেক বাধ্যতামূলক
+আউটপুট ফরম্যাট (হুবহু এই গঠন বজায় রাখুন): প্রশ্ন {ক্রমিক}: {প্রশ্নের টেক্সট}
+
+A) {অপশন A} — 
+B) {অপশন B} —
+C) {অপশন C} — 
+D) {অপশন D} —  উত্তর: {সঠিক অপশন লেটার}) {সঠিক অপশন টেক্সট} উৎস: {NCERT/আইন/‘এই প্রশ্নটি আমি বানিয়েছি’}     add kono repet na hoi jodi tomar monei hoi 50 tar besi qustain korte topic thek qustain bad porche tahole qustain barate paro and aktu boro kore dau lekha gulo jate porte subidha hoi  optin er pase atirikto lekha soriye dau jodi kono lekha improtent mone hoi tahole rakbe qustain gulo sundor kore porte valo lage amon vabe kore dau bojhar moto exam a asar moto  
