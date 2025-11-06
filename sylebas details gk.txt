@@ -1,51 +1,136 @@
- General Knowledge – 15 Marks
-এই অংশে স্থায়ী ও মৌলিক জ্ঞান যাচাই করা হয়, যা সময়ের সাথে খুব একটা পরিবর্তন হয় না।
-📌 পড়ার বিষয়সমূহ:
-1. পরিবেশ ও বাস্তুতন্ত্র
+West Bengal All Govt & Competitive Exams General Knowledge (GK) Ultimate Chapterwise Syllabus
 
-পরিবেশ দূষণ (Air, Water, Noise)
-জলবায়ু পরিবর্তন ও এর প্রভাব
-জীববৈচিত্র্য ও সংরক্ষণ
-পরিবেশ সংরক্ষণ আইন ও উদ্যোগ (যেমন: Project Tiger, NGT)
+--------------------------------------------------------------
+1. Geography (ভারত ও পশ্চিমবঙ্গ ভূগোল)
+--------------------------------------------------------------
+- ভারতের States, Capitals, Union Territories, International Borders
+- পশ্চিমবঙ্গের জেলা, জেলা সদর, District History, সৃষ্টি সাল
+- Map based Locations, Major Cities & Towns
+- Important Rivers, Lakes, Waterfalls, Dams (Ganga, Hooghly, Teesta, Damodar, Subarnarekha, Farakka)
+- Hills, Plateaus, Darjeeling Himalaya, Ajodhya, Chhotanagpur, Eastern Bengal ranges
+- Sundarbans Delta, Mangrove Forests, Biosphere Reserve
+- Forests, Conservation Acts, Ramsar Sites
+- National Parks, Wildlife/Bird Sanctuaries (Sundarbans, Jaldapara, Neora Valley, Gorumara, Ballavpur)
+- Soils, Climate, Rainfall patterns, Agricultural zones, Major crops (Rice, Jute, Tea, Potato)
+- Minerals (Coal, Iron, Limestone, Copper), ও ক্ষেত্র (Raniganj, Durgapur)
+- Major Industries: Jute, Tea, IT, Steel, Fishery, Petrochemicals, Cement, Rice Mill, Power, Agriculture
+- Ports: Kolkata, Haldia, Inland Waterways
+- Important Tourism/Heritage sites, Religious places, Festivals, Melas (Gangasagar, Poush, Kumbh)
 
-2. ভারতের ভূগোল ও পশ্চিমবঙ্গের ভূগোল
+--------------------------------------------------------------
+2. History (ইতিহাস - ভারত এবং বাংলা)
+--------------------------------------------------------------
+- Ancient: Indus, Vedic, Maurya, Gupta, Pala, Sena, Chola, Bengal Sultanate
+- Medieval: Mughal, Nawabs, Portuguese, Dutch, British arrival
+- Modern: Plassey, Buxar, British Rule, Policy, Bengali Freedom/Social Reform Movements
+- Bengal Renaissance: Vidyasagar, Rabindranath, Bankim, Kazi Nazrul, Aurobindo
+- Partition of Bengal (1905, 1947): Causes, Movement, Impact (বঙ্গভঙ্গ, দেশভাগ)
+- Indigo, Santal, Chuar, Tebhaga, Naxalbari, Women's movements
+- Swadeshi Movement, Boycott, Civil Disobedience, Quit India
+- Principal Revolutionaries: Khudiram, Bagha Jatin, Pritilata, Matangini, Dinesh, Benoy-Badal, Chittagong Armoury Raid
+- Netaji Subhas, Gandhiji, Surendranath, Binoy Basu, Bidhan Chandra Roy
+- Formation & reorganization of West Bengal
+- Social Reformers: Raja Rammohan, Keshub Chandra, Gopal Krishna Gokhale
+- Important Monuments: Victoria Memorial, Hazarduari, Bishnupur, Belur Math, Dakshineswar, Shantiniketan
+- Bengal in WWI/WWII, পোষ্ট-ইন্ডিপেনডেন্সে বাংলা রাজনীতি
+- Women's emancipation, Bengal’s literary & social movements
 
-প্রধান নদী, পাহাড়, উপত্যকা
-জলবায়ু, মাটি, কৃষি
-পশ্চিমবঙ্গের জেলা ও তাদের বৈশিষ্ট্য
+--------------------------------------------------------------
+3. Polity & Constitution (সংবিধান, প্রশাসন, সরকার/নিতি)
+--------------------------------------------------------------
+- Indian Constitution: Framing & Features
+- Fundamental Rights/Duties, Directive Principles
+- President, Vice President, PM, Governor, CM, Cabinet, Ministers
+- Parliament & Assemblies: Lok Sabha, Rajya Sabha, Vidhan Sabha/Parishad
+- Judiciary: Supreme Court, Calcutta High Court, District Courts
+- Panchayati Raj, Urban Local Bodies, Corporation, Municipality, Gram Panchayat
+- Election process, Voter rights, Polling system, EVM
+- Reservation Policy, Welfare Schemes
+- Schedules, Articles, State Symbols, State Emblem
+- Major Committees/Commissions
+- Local Government & Administration, Police system
+- RTI, Child Marriage, Women & Child Welfare Laws
 
-3. ভারতের ইতিহাস ও পশ্চিমবঙ্গের ইতিহাস
+--------------------------------------------------------------
+4. Economy (অর্থনীতি/শিল্প/আর্থ সামাজিক)
+--------------------------------------------------------------
+- Indian Economy: Basic Concepts, Sectors
+- WB Economy: GDP, Agro-based, Major & Small Industries, MSME, Cooperative Movement
+- Livelihoods, Fisheries, Cottage Industries
+- Banking sector: RBI, Major Banks, Financial Inclusion, Microfinance, KCC, ATM
+- Government Economic Schemes: MGNREGA, PM Kisan, National Food Security, Crop Insurance, Poverty Alleviation, SHG
+- Trade, Export-Import, Ports, Railways, Industrial Corridors
+- Statistics: Poverty, Unemployment, HDI, Literacy
+- State Budget, Taxation basics, GST, Economic Survey
+- Planning Commission/NITI Aayog
 
-প্রাচীন, মধ্যযুগ ও আধুনিক ভারতের ইতিহাস
-স্বাধীনতা আন্দোলন ও নেতৃবৃন্দ
-বাংলার নবজাগরণ ও সমাজ সংস্কার
+--------------------------------------------------------------
+5. Science, Tech & Environment (বিজ্ঞান-প্রযুক্তি-পরিবেশ)
+--------------------------------------------------------------
+- Physics, Chemistry, Biology, General Science basics
+- Human Body, Disease, Vaccine, Nutrition, Genetics, Blood Group
+- Plant Science, Photosynthesis, Ecology, Biodiversity, Conservation
+- Pollution (Air/Water/Soil/Noise), Environmental Movements (Chipko, Bishnoi), Afforestation
+- Natural Disasters in Bengal: Flood, Cyclone, Earthquake, Amphan, Aila
+- Sundarbans ecology, Conservation efforts
+- Indian/Bengali Scientists: S N Bose, J C Bose, Meghnad Saha, Prafulla Ray, Acharya Jagadish
+- Innovations, Nobel Awards in Science, Green Revolution
+- Space Research: ISRO, PSLV, Chandrayaan, Gaganyaan
+- Computer basics, Internet, Cyber Security, Digital India & Bengal, Mobile Apps
 
-4. ভারতের সংবিধান ও রাজনীতি
+--------------------------------------------------------------
+6. Society, Culture & Religion (সমাজ-সংস্কৃতি-ধর্ম)
+--------------------------------------------------------------
+- Bengali Language, Dialects, Scripts (Bangla, Santali, Nepali, Urdu)
+- Major Festivals: Durga, Kali, Saraswati, Nabanna, Poila Baisakh, Gangasagar, Eid, Christmas, Rath
+- Literature: Nobel Laureates, Rabindranath, Nazrul, Bankim, Sarat, Michael, Sukumar Ray
+- Folk Dance/Music: Baul, Bhatiali, Chau, Raibeshe
+- Bengali Theatre, Cinema, TV, Opera, Drama, Jatra
+- Cuisine, Attire, Art Forms (Terracotta, Kantha, Alpona, Patachitra, Clay Pottery)
+- Libraries, Museums, Archives, Literary Institutions
+- Customs, Social/Family Practices, Rituals, Bengali Calendar months
+- Prominent Social reformers/activists/women achievers in Bengal  
+- Women's movements, Educational movements, Child Welfare
 
-মৌলিক অধিকার ও কর্তব্য
-রাষ্ট্রপতি, প্রধানমন্ত্রী, সংসদ, বিধানসভা
-নির্বাচন ও ভোটাধিকার
+--------------------------------------------------------------
+7. Personalities, Awards, Sports (খ্যাতিমান ব্যক্তি, পুরস্কার, ক্রীড়া)
+--------------------------------------------------------------
+- Major Awards: Nobel, Bharat Ratna, Padma, Banga Bibhushan
+- WB Sports: Cricket (Ganguly), Football (Mohun Bagan, East Bengal), Olympics, Asian Games
+- Noted Sportspersons: Jhulan Goswami, Swapna Barman, Dipa Karmakar, Sourav Ganguly
+- Writers, Scientists, Film-makers, Musicians, Painters, Political Leaders (Past/Present)
+- Women's Achievers (Literature, Sports, Social Work)
+- Sports Events, Venues (Eden Gardens), State/National Sports Day
+- Arjuna Award, Dronacharya, Khel Ratna
 
-5. সাধারণ বিজ্ঞান (Class 6–10 NCERT ভিত্তিক)
+--------------------------------------------------------------
+8. Important Days, Events, Organizations (গুরুত্বপূর্ণ দিন/ইভেন্ট/সংস্থা)
+--------------------------------------------------------------
+- National/State/International Days (Netaji, Rabindra, Vidyasagar, Independence, Republic, Science, Women’s, Environment, AIDS)
+- Major events/anniversaries in Bengal history
+- UN/International agencies (UNESCO, UNICEF, WHO)
+- National/state HQs: RBI, SBI, Kolkata, State offices
+- Bengal’s important fairs & festivals; Commemorative Events
+- Govt Departments, Initiatives
 
-পদার্থবিজ্ঞান, রসায়ন, জীববিজ্ঞান
-দৈনন্দিন জীবনে বিজ্ঞান
-স্বাস্থ্য ও রোগ প্রতিরোধ
+--------------------------------------------------------------
+9. Others/Miscellaneous (বিবিধ)
+--------------------------------------------------------------
+- Books & Authors, Bengali idioms/proverbs
+- Abbreviations: DRDO, ISRO, NITI, PM Kisan, KCC, MGNREGA
+- State Symbols (State animal, bird, flower, tree)
+- Bengali Calendar, Months, Festivals
+- Government Websites, Digital services, Recent Dev. app
+- Recent Awards, Bengal development projects, Current Census, Population, Literacy, Recent Govt launches
 
-6. ভারতের অর্থনীতি ও সামাজিক কাঠামো
+--------------------------------------------------------------
 
-অর্থনৈতিক পরিভাষা (GDP, Inflation)
-দারিদ্র্য, বেকারত্ব, সামাজিক প্রকল্প
-ব্যাংকিং ও অর্থনৈতিক প্রতিষ্ঠান
+**Preparation Guidance**
+- WB Board School Books (Class 6-10), Lucent GK (Eng/Bengali), Chhaya/Arihant GK, Bengal GK Reference
+- Practice: Previous Year Questions, Mock Test, MCQ sets, Short notes/fact book; Online Bengali GK PDFs
+- Revise chapterwise, datewise/personwise/topicwise; MCQ + descriptive both করতেই হবে
 
-7. সাংস্কৃতিক ঐতিহ্য ও সাহিত্য
+--------------------------------------------------------------
 
-ভারত ও পশ্চিমবঙ্গের উৎসব
-বিখ্যাত সাহিত্যিক ও তাঁদের রচনা
-নৃত্য, সংগীত, চিত্রকলা
-
-8. ভারতের প্রশাসনিক কাঠামো
-
-কেন্দ্র ও রাজ্য সরকারের গঠন
-প্রশাসনিক বিভাগ ও তাদের কাজ
-সরকারি প্রকল্প ও সংস্থা
+**এই ফাইল পড়লে WB অথবা Central Govt job exam-এর GK-তে প্রশ্ন ‘miss’ হওয়ার প্রশ্নই নেই।  
+কি চাইলে লিখুন! Best wishes.**
