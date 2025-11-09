@@ -1,103 +1,129 @@
-<a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener noreferrer">
-  Open Microsoft 365 Chat
-</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Video Player</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      margin: 0; padding: 2rem;
+      display: grid; place-items: start center;
+      background: Canvas; color: CanvasText;
+    }
+    .container { width: min(900px, 100%); }
+    .player {
+      aspect-ratio: 16 / 9;
+      background: #111;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,.15);
+    }
+    video { width: 100%; height: 100%; display: block; }
+    .controls {
+      display: flex; gap: .75rem; align-items: center; margin-top: 1rem; flex-wrap: wrap;
+    }
+    label.button {
+      border: 1px solid #444; padding: .5rem .9rem; border-radius: .5rem;
+      cursor: pointer; background: color-mix(in srgb, Canvas 90%, CanvasText 10%);
+    }
+    input[type="file"] { display: none; }
+    small { opacity: .8; }
+    details { margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Video Player</h1>
 
+    <div class="player">
+      <video id="video" controls preload="metadata" poster="poster.jpg">
+        <!-- Replace with your sources or use the Choose Video button -->
+        <source src="sample.mp4" type="video/mp4" />
+        <source src="sample.webm" type="video/webm" />
+        <track label="English" kind="subtitles" srclang="en" src="subtitles.vtt" default />
+        Your browser does not support the HTML5 video tag.
+      </video>
+    </div>
 
-        
-        
-      <div class="quotes" aria-live="polite">
-          <div class="quote"><br>Create an Android application using Kotlin that supports Android versions from 7.0 (API 24) to Android 14 and runs entirely offline without any server or cloud connectivity. The app should allow users to scan documents in any language using the device camera. After scanning, a preview screen must display the captured image with options for Crop (including Auto Crop), Rotate, Brightness (including Auto Brightness), Retake, and Process. Auto Crop and Auto Brightness should use OpenCV for image processing, and the app must include auto edge detection and auto straighten features. A batch scan mode should allow users to scan multiple pages and swipe through scanned files. When the user taps the Process button, show options for Download and Share. In Download, users can choose between .txt and .pdf formats. If .txt is selected, use ML Kit’s on-device OCR API to extract text automatically based on the language of the scanned document—users should not manually select the language. If .pdf is selected, save the scanned image as a PDF file in local storage. In Share, use Android’s native Share Intent to allow sharing via WhatsApp, Gmail, Drive, etc., using FileProvider to generate URIs. Users should be able to share multiple files at once and have the option to compress them into .zip format before sharing. All scanned files must be stored locally using Scoped Storage. Include a History screen listing scanned files with file name, scan timestamp, and a Process button. The History screen should support renaming, deleting, sorting, and filtering files. Include a Settings screen with options for Dark Mode toggle, app language selection (Bangla, Hindi, English), and scan resolution settings. OCR language selection must always be automatic based on the document content, and users should not be allowed to manually choose the OCR language. The UI must follow Material Design guidelines using Material 3 components, include a Bottom Navigation Bar with Home, History, and Settings tabs (each with icons and labels), and use MotionLayout for smooth animations during screen transitions and Crop/Rotate actions. Preview screen options should be placed in a bottom toolbar, and Download/Share buttons should appear as a bottom sheet. Use Roboto font and support dynamic color changes based on Light/Dark Mode. The app must support Android 12+ dynamic color theming and responsive layouts for phones and tablets using ConstraintLayout. Accessibility support must include screen reader compatibility, large font options, and high contrast mode, with proper use of contentDescription, labelFor, and importantForAccessibility attributes. The app must support RTL layout direction and use strings.xml for full localization. Language switching should be implemented using ContextWrapper with activity recreation. Include a debug log viewer using a scrollable TextView or RecyclerView. Add CAMERA, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, and INTERNET permissions in AndroidManifest.xml, and include requestLegacyExternalStorage="true" for Android 10. Implement a Kotlin function for runtime permission checking using ContextCompat and ActivityCompat, with version-aware logic for Android 7 to 14. If permission is denied, notify the user via Toast or Snackbar. Use coroutines or background threads to maintain UI responsiveness and handle errors using try-catch blocks. The app must build successfully without Gradle sync issues and include Android Studio setup instructions.</div>
-        
+    <div class="controls">
+      <label class="button">
+        <input id="file" type="file" accept="video/*" />
+        Choose Video…
+      </label>
+
+      <label class="button">
+        <input id="subtitle" type="file" accept=".vtt,text/vtt" />
+        Add Subtitles (.vtt)…
+      </label>
+
+      <small id="filename">Now playing: sample.mp4</small>
+    </div>
+
+    <details>
+      <summary>Embed a YouTube/Vimeo video (optional)</summary>
+      <div style="margin-top:.75rem">
+        <div style="position:relative;padding-top:56.25%;overflow:hidden;border-radius:12px;">
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            style="position:absolute;inset:0;width:100%;height:100%;border:0;">
+          </iframe>
+        </div>
       </div>
+    </details>
+  </div>
 
-      <div class="quotes" aria-live="polite">
-          <div class="quote"><br>Build an Android application using Kotlin named Offline Image Cleaner that works entirely offline, without any internet, cloud, or server access. The app must support Android versions from API level 24 (Android 7.0) to API level 34 (Android 14). All processing must be done locally on the device, and the code should be structured so that every feature functions reliably after deployment, with no missing logic or runtime errors.
-The app must include the following features: duplicate image detection using image hashing or pixel comparison; blurred image detection based on sharpness and contrast analysis; similar image grouping based on visual similarity such as pose and background; automatic screenshot categorization using filename patterns or metadata; WhatsApp media cleaner to scan and remove unused images, videos, audio, and documents; app junk cleaner to detect leftover files from uninstalled apps (cache, data, obb); large file finder to identify files over 50MB; file type filter for formats like JPG, PNG, MP4, and PDF; permanent delete mode that removes files without recovery or temporary storage; a smart suggestion panel that provides preview and cleanup recommendations; scheduled scan functionality using WorkManager or AlarmManager for weekly or monthly scans; and a battery saver mode to reduce CPU usage during scanning.
-Design the UI following Material Design 3 guidelines using Jetpack Compose or ConstraintLayout. The layout must be responsive across mobile and tablet devices. The home screen should include a pie or bar chart showing storage usage, a “Scan Now” button, recent cleanup summary, a dark mode toggle, and a language selector supporting English, Hindi, and Bengali. The image cleaner screen should display a grid view of images with segmented tabs for “Duplicate,” “Blurred,” and “Similar,” along with checkbox selection and a “Preview & Clean” button. The file cleaner screen should include sections for WhatsApp media, large files, and app junk, each with file lists and a “Clean Selected” button. The suggestion screen should show preview thumbnails, accept/ignore buttons, and a summary of how much space will be freed. The settings screen should allow users to change language, toggle dark mode, configure scan schedules, and view permission status.
-Ensure accessibility by implementing TalkBack support, font scaling, content descriptions, and high contrast mode for visually impaired users. Improve user experience with smooth screen transitions, loading indicators, and animations.
-Handle permissions appropriately: use READ_EXTERNAL_STORAGE and WRITE_EXTERNAL_STORAGE for Android 10 and below, and MANAGE_EXTERNAL_STORAGE via Storage Access Framework or MediaStore API for Android 11 and above. Optionally include PACKAGE_USAGE_STATS if usage data is needed.
-Structure the logic using MVVM architecture with modular Kotlin classes and functions. Use Kotlin Coroutines and Jetpack libraries such as WorkManager, ViewModel, LiveData, and Room. Implement robust error handling using try-catch blocks, and notify users via Snackbar or Dialog. Include fallback behavior for cases like corrupt files, denied permissions, or insufficient storage. Add confirmation dialogs before permanent deletion and request user consent for sensitive file access. Validate local storage and permissions before executing any feature.
-Log all critical actions and errors to Logcat to support debugging. Optimize performance to prevent memory leaks, ANRs, and UI freezes, especially during scanning and image comparison. Include unit tests and UI tests using Espresso or JUnit, and ensure all edge cases are handled gracefully.</div>
-        
-      </div>
-</div>
+  <script>
+    (function() {
+      const video = document.getElementById('video');
+      const fileInput = document.getElementById('file');
+      const subInput = document.getElementById('subtitle');
+      const filename = document.getElementById('filename');
+      let currentSrcUrl = null;
+      let currentTrackUrl = null;
 
-      <div class="quotes" aria-live="polite">
-          <div class="quote"><brou can copy and paste each of these into Copilot one at a time, or combine them as needed.
+      fileInput?.addEventListener('change', () => {
+        const file = fileInput.files?.[0];
+        if (!file) return;
+        if (currentSrcUrl) URL.revokeObjectURL(currentSrcUrl);
+        currentSrcUrl = URL.createObjectURL(file);
+        video.src = currentSrcUrl;
+        video.play().catch(() => {});
+        filename.textContent = 'Now playing: ' + (file.name || 'Selected video');
+      });
 
-🟦 1. Camera Capture & Preview UI
+      subInput?.addEventListener('change', () => {
+        const file = subInput.files?.[0];
+        if (!file) return;
+        if (currentTrackUrl) URL.revokeObjectURL(currentTrackUrl);
+        currentTrackUrl = URL.createObjectURL(file);
 
-Create a Kotlin-based Android activity that opens the device camera, captures a document image, and displays it in a preview screen. The preview screen should include buttons for Crop (with Auto Crop), Rotate, Brightness (with Auto Brightness), Retake, and Process. Use a bottom toolbar to place these options.
+        // Remove existing tracks
+        [...video.querySelectorAll('track')].forEach(t => t.remove());
 
+        const track = document.createElement('track');
+        track.kind = 'subtitles';
+        track.label = 'Subtitles';
+        track.srclang = 'en';
+        track.src = currentTrackUrl;
+        track.default = true;
+        video.appendChild(track);
 
-🟦 2. Auto Image Processing with OpenCV
+        // Ensure subtitles show on some browsers
+        if (video.textTracks && video.textTracks[0]) {
+          video.textTracks[0].mode = 'showing';
+        }
+      });
 
-Implement auto image processing using OpenCV in Kotlin. Include auto edge detection, auto straighten, auto crop, and auto brightness features. These should be triggered automatically after capturing the image and shown in the preview.
-
-
-🟦 3. Batch Scan Mode
-
-Add support for batch scanning. Allow users to scan multiple pages in sequence and swipe horizontally to view each scanned image. Use a ViewPager or RecyclerView for swipe navigation.
-
-
-🟦 4. Process Button Logic
-
-When the user taps the Process button, show a bottom sheet with two options: Download and Share. Implement this using Material Design BottomSheetDialog.
-
-
-🟦 5. Download as .txt using ML Kit OCR
-
-Implement a function that uses ML Kit’s on-device OCR API to extract text from the scanned image. Automatically detect the language of the document (no manual selection). Save the extracted text as a .txt file in local storage using Scoped Storage.
-
-
-🟦 6. Download as .pdf
-
-Create a function that converts the scanned image(s) into a PDF file and saves it locally using Scoped Storage. Ensure the PDF is properly formatted and named.
-
-
-🟦 7. Share Files with FileProvider
-
-Implement a share feature using Android’s native Share Intent. Use FileProvider to generate URIs for the files. Allow sharing of multiple files and include an option to compress them into a .zip file before sharing.
-
-
-🟦 8. History Screen
-
-Create a History screen that lists all previously scanned files. Each item should show the file name, scan timestamp, and a Process button. Include options to rename, delete, sort, and filter the list.
-
-
-🟦 9. Settings Screen
-
-Build a Settings screen with the following options: toggle Dark Mode, select app language (Bangla, Hindi, English), and change scan resolution. Use strings.xml for localization and ContextWrapper to apply language changes at runtime.
-
-
-🟦 10. UI Design & Accessibility
-
-Design the UI using Material 3 components and ConstraintLayout. Include a Bottom Navigation Bar with Home, History, and Settings tabs. Use MotionLayout for smooth animations. Support Light/Dark Mode, Android 12+ dynamic color theming, RTL layout, and accessibility features like screen reader support, large fonts, and high contrast mode. Add contentDescription, labelFor, and importantForAccessibility to all UI elements.
-
-
-🟦 11. Debug Log Viewer
-
-Add a debug log viewer screen using a scrollable TextView or RecyclerView to display logs generated during app usage.
-
-
-🟦 12. Permissions & Runtime Handling
-
-Add CAMERA, READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, and INTERNET permissions in AndroidManifest.xml. For Android 10, include requestLegacyExternalStorage="true". Write a Kotlin function using ContextCompat and ActivityCompat to check and request permissions with version-aware logic for Android 7 to 14. Show a Toast or Snackbar if permission is denied.
-
-
-🟦 13. Performance & Error Handling
-
-Use Kotlin coroutines or background threads for all long-running tasks like image processing and file saving. Wrap all critical operations in try-catch blocks to handle errors gracefully and maintain UI responsiveness.
-
-
-🟦 14. Build & Setup
-
-Ensure the app builds successfully without Gradle sync issues. Provide Android Studio setup instructions including dependencies for ML Kit, OpenCV, and FileProvider.div>
-        
-      </div>
-</div>
-
-      <div class="quotes" aria-live="polite">
-          <div class="quote"><br></div>
-        
-      </div>
+      window.addEventListener('unload', () => {
+        if (currentSrcUrl) URL.revokeObjectURL(currentSrcUrl);
+        if (currentTrackUrl) URL.revokeObjectURL(currentTrackUrl);
+      });
+    })();
+  </script>
+</body>
+</html>
